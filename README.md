@@ -46,7 +46,7 @@ The Cackling Crow blog
     3. pass: {wp pass}
     4. email: {associated email}
 5. Login and go to Settings > Permlinks
-    1. Set to "Post name" and save
+    1. Set to "Plain" and save
 
 ## On server
 1. `sudo a2enmod rewrite`
