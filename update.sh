@@ -3,7 +3,7 @@
 cd "$(dirname "$0")";
 
 curdir=$(pwd | xargs basename)
-gitreponame=$(basename `git rev-parse --show-toplevel`)
+gitreponame=$(basename `sudo -u crow git rev-parse --show-toplevel`)
 
 if [ "$curdir" = "$gitreponame" ]; then
     #Clean git repo
@@ -16,7 +16,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     cd -
     #Copy static site to git repo
     sudo cp /var/www/html/crow.local-static/* . -r
-    gitdiff=$(git diff --ignore-all-space)
+    gitdiff=$(sudo -u crow git diff --ignore-all-space)
     if [ "$gitdiff" != "" ]; then
         #Update lastrun
         date +%s > ./lastrun
