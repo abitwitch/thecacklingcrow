@@ -84,7 +84,7 @@ The Cackling Crow blog
 
 ## Cron job
 1. `sudo crontab -e`
-2. add this line `*/5 * * * * {path/to/repo}/update.sh`
+2. add this line `0 0 * * * /usr/bin/bash /home/crow/thecacklingcrow/update.sh`
 
 
 
