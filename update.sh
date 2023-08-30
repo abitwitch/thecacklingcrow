@@ -10,9 +10,9 @@ if [ "$curdir" = "$gitreponame" ]; then
     sudo sed -i 's|http://thecacklingcrow.com|https://crow.local|g' wp-config.php
     cd -
     sudo cp /var/www/html/crow.local-static/* . -r
-    git add -A
-    git commit -m "`date`"
-    git push
+    sudo -u crow git add -A
+    sudo -u crow git commit -m "`date`"
+    sudo -u crow git push
 else
     echo "Error: Set current directory to the repo and then rerun."
     exit 1
