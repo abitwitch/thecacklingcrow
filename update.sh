@@ -1,3 +1,5 @@
+cd "$(dirname "$0")";
+
 curdir=$(pwd | xargs basename)
 gitreponame=$(basename `git rev-parse --show-toplevel`)
 
@@ -25,6 +27,8 @@ if [ "$curdir" = "$gitreponame" ]; then
         sudo -u crow git push
         #Update lastrun
         date +%s > ./lastrun
+    else
+        echo "No changes since last run."
     fi
 else
     echo "Error: Set current directory to the repo and then rerun."
