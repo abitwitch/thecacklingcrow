@@ -51,6 +51,10 @@ The Cackling Crow blog
 ## On server
 1. `sudo a2enmod rewrite`
 2. `sudo systemctl restart apache2`
+3. `cd /var/www/html`
+4. `sudo echo "#These two lines are edited by a separate script" >> wp-config.php`
+5. `sudo echo "define( 'WP_HOME', 'http://crow.local' );" >> wp-config.php`
+6. `sudo echo "define( 'WP_SITEURL', 'http://crow.local' );" >> wp-config.php`
 
 ## Make static copy of Wordpress site
 1. `cd /var/www/html`
