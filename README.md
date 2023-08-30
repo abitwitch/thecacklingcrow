@@ -46,4 +46,24 @@ The Cackling Crow blog
     3. pass: {wp pass}
     4. email: {associated email}
 
+
+## TODO
+wpstatic
+
 ## Git sync setup
+1. `sudo apt-get update`
+2. `sudo apt-get install git`
+3. `ssh-keygen -t ed25519 -C "{associated crow email}"`
+4. `cat /home/crow/.ssh/id_ed25519.pub`, copy content
+5. Add that key as a write access deployment key for the repo on github
+6. `git config --global user.name "{name}"`
+7. `git config --global user.email "{associated crow email}"`
+9. `git clone {repo}` (by sure to use SSH format)
+10. `sudo cp /var/www/html/* . -r`
+15. `git add -A`
+16. `git commit -m "{message}"`
+17. `git push`
+
+
+
+
