@@ -45,10 +45,18 @@ The Cackling Crow blog
     2. user: {wp user}
     3. pass: {wp pass}
     4. email: {associated email}
+5. Login and go to Settings > Permlinks
+    1. Set to "Post name" and save
 
+## On server
+1. `sudo a2enmod rewrite`
+2. `sudo systemctl restart apache2`
 
-## TODO
-wpstatic
+## Make static copy of Wordpress site
+1. `cd /var/www/html`
+2. `wget https://raw.githubusercontent.com/chnm/WP-Static/master/wpstatic`
+3. `chmod +x wpstatic`
+4. `sudo ./wpstatic`
 
 ## Git sync setup
 1. `sudo apt-get update`
@@ -56,13 +64,16 @@ wpstatic
 3. `ssh-keygen -t ed25519 -C "{associated crow email}"`
 4. `cat /home/crow/.ssh/id_ed25519.pub`, copy content
 5. Add that key as a write access deployment key for the repo on github
-6. `git config --global user.name "{name}"`
-7. `git config --global user.email "{associated crow email}"`
+6. `cd ~`
+7. `git config --global user.name "{name}"`
+8. `git config --global user.email "{associated crow email}"`
 9. `git clone {repo}` (by sure to use SSH format)
-10. `sudo cp /var/www/html/* . -r`
+10. `cd {repo}`
+11. `sudo cp /var/www/html/crow.local-static/* . -r`
 15. `git add -A`
 16. `git commit -m "{message}"`
 17. `git push`
+
 
 
 
