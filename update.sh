@@ -6,7 +6,7 @@ gitreponame=$(basename `git rev-parse --show-toplevel`)
 if [ "$curdir" = "$gitreponame" ]; then
     cd /var/www/html
     sudo sed -i 's|http://crow.local|http://thecacklingcrow.com|g' wp-config.php
-    yes | sudo ./wpstatic -t
+    yes | sudo ./wpstatic -p
     sudo sed -i 's|http://thecacklingcrow.com|http://crow.local|g' wp-config.php
     cd -
     sudo cp /var/www/html/crow.local-static/* . -r
