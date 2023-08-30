@@ -74,7 +74,9 @@ The Cackling Crow blog
 16. `git commit -m "{message}"`
 17. `git push`
 
-
+## Script update
+1. `sudo bash ./clean.sh`
+2. `sudo bash ./update.sh`
 
 
 
