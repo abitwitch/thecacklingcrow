@@ -10,7 +10,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     #Clean prev run of static site
     sudo rm -r /var/www/html/crow.local-static/
     #Create static version of site
-    yes | sudo ./wpstatic
+    yes | sudo ./wpstatic -a
     #cd -
     #sudo wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows crow.local
     #cd /var/www/html
