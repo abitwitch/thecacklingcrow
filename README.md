@@ -82,5 +82,9 @@ The Cackling Crow blog
 1. `sudo bash ./clean.sh`
 2. `sudo bash ./update.sh`
 
+## Cron job
+1. `sudo crontab -e`
+2. add this line `*/5 * * * * {path/to/repo}/update.sh`
+
 
 
