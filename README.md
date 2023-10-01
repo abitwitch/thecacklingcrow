@@ -6,13 +6,13 @@ TODO
 
 # Installation
 To get your website up and running, follow the steps in the ordered sections below:
-1. [Setup the Raspberry Pi] (#setup-the-aspberry-pi)
-2. [Install Wordpress on the Raspberry Pi] (#install-wordpress-on-the-raspberry-pi)
-3. [Wordpress setup] (#wordpress-setup)
-4. [Add URL configuration to the Raspberry Pi Server] (#add-url-configuration-to-the-raspberry-pi-server)
-5. [Set-up ability to make a static copy of Wordpress to the Raspberry Pi Server] (#setup-ability-to-make-a-static-copy-of-wordpress-to-the-raspberry-pi-server)
-6. [Set-up GitHub Repo] (#setup-github-repo)
-7. [Set up a Cron job on the Raspberry Pi] (#set-up-a-cron-job-on-the-raspberry-pi)
+1. [Setup the Raspberry Pi](#setup-the-aspberry-pi)
+2. [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi)
+3. [Wordpress setup](#wordpress-setup)
+4. [Add URL configuration to the Raspberry Pi Server](#add-url-configuration-to-the-raspberry-pi-server)
+5. [Set-up ability to make a static copy of Wordpress to the Raspberry Pi Server](#setup-ability-to-make-a-static-copy-of-wordpress-to-the-raspberry-pi-server)
+6. [Set-up GitHub Repo](#setup-github-repo)
+7. [Set up a Cron job on the Raspberry Pi](#set-up-a-cron-job-on-the-raspberry-pi)
 
 # Use
 TODO
@@ -33,7 +33,7 @@ TODO
    1. On a machine connected to the same network as the Raspberry Pi, open a command-line window ("Command Prompt" or "PowerShell" on Windows or "Terminal" on linux or MacOS)
    2. `ssh crow.local -l crow`
    3. You may have to say Yes to add the key as a known ssh host
-   4. Enter your password from the section [Setup the Raspberry Pi] (#setup-the-aspberry-pi)
+   4. Enter your password from the section [Setup the Raspberry Pi](#setup-the-aspberry-pi)
 2. `sudo apt-get install apache2 -y`
 3. `sudo apt-get install php -y`
 4. `sudo apt-get install mariadb-server php-mysql -y`
@@ -66,7 +66,7 @@ TODO
 2. Follow wizard
     1. Database Name: wordpress
     2. User Name: root
-    3. Password: {DB password} (from the section [Install Wordpress on the Raspberry Pi] (#install-wordpress-on-the-raspberry-pi))
+    3. Password: {DB password} (from the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi))
     4. Database Host: localhost
     5. Table Prefix:  wp_
 3. "Run installation"
@@ -78,7 +78,7 @@ TODO
     1. Set to "Plain" and save
 
 ## Add URL configuration to the Raspberry Pi Server
-1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi] (#install-wordpress-on-the-raspberry-pi) for more details)
+1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi) for more details)
 2. `sudo a2enmod rewrite`
 3. `sudo systemctl restart apache2`
 4. `cd /var/www/html`
@@ -102,7 +102,7 @@ TODO
 7. Enter and `Custom domain` if you have one. Follow the linked instuctions there. You will have to configure it with your Domnain name provider as well. 
 
 ## Setup Git syncing on the Raspberry Pi
-1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi] (#install-wordpress-on-the-raspberry-pi) for more details)
+1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi) for more details)
 1. `sudo apt-get update`
 2. `sudo apt-get install git`
 3. `ssh-keygen -t ed25519 -C "{associated crow email}"` (your github email)
@@ -124,7 +124,7 @@ TODO
 14. `sudo bash ./update.sh` (this will make a copy of the website)
 
 ## Set up a Cron job on the Raspberry Pi
-1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi] (#install-wordpress-on-the-raspberry-pi) for more details)
+1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi) for more details)
 1. `sudo crontab -e` (you may have you pick a default text editor, I recommend Nano for beginners)
 2. add this line `0 0 * * * /usr/bin/bash /home/crow/thecacklingcrow/update.sh` (this will mean the Raspberry Pi will apply any changes you've made to your site locally to the open web at Midnight every night)
 
