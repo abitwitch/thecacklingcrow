@@ -1,8 +1,45 @@
 # thecacklingcrow
-The Cackling Crow blog
+The Cackling Crow blog website repository.
 
 # How it works
-TODO
+This repo is used for hosting the [thecacklingcrow.com](https://thecacklingcrow.com/), and also outlines the process of hosting a website for free using GitHub for hosting, WordPress for managing the website content, and a Raspberry Pi for hosting a local editable version of the website. 
+
+## Structure
+The diagram below shows how the different part of this project interact with eachother.
+```mermaid
+graph TB
+    subgraph Open Internet
+        users(Users) -.-> gitwebsite
+        users(Users) --> dom
+        dom(Domain Registrar - DNS) --> gitwebsite
+        subgraph GitHub
+            gitrepo(Code repository) --> gitwebsite(Static Website)
+        end
+        subgraph lan[Local Area Network]
+            pi <--> piwebsite(Local live WordPress website)
+            devs(Developers) --> piwebsite
+            pi(Raspberry Pi)-- Everyday at Midnight --> gitrepo
+        end
+    end
+```
+
+## Benefits
+- Free (other than optional cost of a domian name)
+- Basically the same usage as a regular WordPress site
+- Secuity benefits (your live WordPress site won't be accissble from the open internet, only the a static version it will be accessible)
+- GitHub will store your website history
+- You get a home server that serves to the open internet without having to open your home network to serve a website
+- A static IP isn't needed (or the use of a Dynamic DNS service)
+
+## Limitations
+- Since this is a static site, users will not be able to leave comments
+- No default support for viewing web traffic
+- Since it relies on free hosting from GitHub, there is no support and no guaruntee the service will remain availible
+- GitHub will store your website history (anyone will be able to see if they find your public repo)
+
+# Use
+After you've followed the [Installation](#installation) instructions, you can access your WordPress website through a browser that's connected to the same network as the Raspberry Pi. You can make any changes to your website you'd like using the regular WordPress interface. Once you've saved your changes, your live website will automatically be updated the same day (at midnight).
+
 
 # Installation
 To get your website up and running, follow the steps in the ordered sections below:
@@ -13,10 +50,6 @@ To get your website up and running, follow the steps in the ordered sections bel
 5. [Set-up ability to make a static copy of Wordpress to the Raspberry Pi Server](#setup-ability-to-make-a-static-copy-of-wordpress-to-the-raspberry-pi-server)
 6. [Set-up GitHub Repo](#setup-github-repo)
 7. [Set up a Cron job on the Raspberry Pi](#set-up-a-cron-job-on-the-raspberry-pi)
-
-# Use
-TODO
-
 
 ## Setup the Raspberry Pi
 1. Install Raspbian on a raspberry pi
@@ -76,6 +109,8 @@ TODO
     4. email: {associated email} (enter your existing email address)
 4. Login and go to Settings > Permlinks
     1. Set to "Plain" and save
+5. Go to Settings > Discussion 
+   1. Uncheck the option that says “Allow people to post comments on new articles" (see [Limitations](#limitations))
 
 ## Add URL configuration to the Raspberry Pi Server
 1. SSH into the Raspberry Pi (see step 1 of the section [Install Wordpress on the Raspberry Pi](#install-wordpress-on-the-raspberry-pi) for more details)
