@@ -17,7 +17,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     #Copy static site to git repo
     sudo cp /var/www/html/crow.local-static/* . -r
     sudo -u crow git pull
-    gitdiff=$(sudo -u crow git diff --ignore-all-space)
+    gitdiff=$(sudo -u crow git diff --ignore-all-space -I"secret=.*\"")
     if [ "$gitdiff" != "" ]; then
         #Update lastrun
         date +%s > ./lastrun
