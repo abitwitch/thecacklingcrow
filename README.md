@@ -1,3 +1,5 @@
+> :warning: **NOTE Site Unpublished**: To re-connect the site, follow instructions [here](#set-up-github-repo)
+
 # thecacklingcrow
 The Cackling Crow blog website repository.
 
