@@ -1,5 +1,3 @@
-> :warning: **NOTE Site Unpublished**: To re-connect the site, change "main-disabled" to "main" [here](/.github/workflows/static.yml#L7) AND follow instructions [here](#set-up-github-repo)
-
 # thecacklingcrow
 The Cackling Crow blog website repository.
 
