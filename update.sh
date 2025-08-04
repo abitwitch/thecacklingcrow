@@ -20,7 +20,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     gitdiff=$(sudo -u crow git diff --ignore-all-space -I"secret=.*\"")
     if [ "$gitdiff" != "" ]; then
         #Update lastrun
-        date +%s > ./lastrun
+        sudo date +%s > ./lastrun
         #Git commit and push
         sudo -u crow git add -A
         sudo -u crow git commit -m "`date`"
