@@ -12,7 +12,7 @@ if [ "$curdir" = "$gitreponame" ]; then
     sudo rm -r /var/www/html/crow.local-static/
     #Create static version of site
     cd /var/www/html
-    yes | sudo ./wpstatic -a
+    yes | sudo ./wpstatic
     cd -
     #Copy static site to git repo
     sudo cp /var/www/html/crow.local-static/* . -r
